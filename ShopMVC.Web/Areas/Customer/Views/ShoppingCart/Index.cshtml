@@ -1,0 +1,64 @@
+﻿@model ShopMVC.Web.Areas.Customer.Models.ShoppingCartListView
+
+@{
+    ViewBag.Title = "Shopping Cart!";
+}
+
+<h2>@ViewBag.Title</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-info"> @TempData["Message"]</div>
+}
+
+@if (Model.ShoppingCartItems.Count > 0)
+{
+    <table class="table">
+        <tr>
+            <th>
+                Title
+            </th>
+            <th>
+                Price (per item)
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.ShoppingCartItems)
+        {
+            using (Html.BeginForm("ChangeAmount", "ShoppingCart", new { itemId = item.Id }, FormMethod.Post))
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(item.BookTitle, "Details", "Products", new { id = item.BookId }, null)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.BookPrice)
+                    </td>
+                    <td>
+                        @Html.DropDownListFor(modelItem => item.Quantity, item.Quantities, new { @class = "myselect" })
+                    </td>
+                    <td>
+                        @Html.HiddenFor(modelItem => item.Id)
+
+                        <input type="submit" class="btn-link" value="Update quantity!" />
+                        <input type="submit" class="btn-link" value="Delete" formaction="ShoppingCart/Delete" formmethod="post" />
+                    </td>
+                </tr>
+            }
+        }
+
+    </table>
+}
+else
+{
+    <div class="alert alert-info">@ViewBag.Message</div>
+}
+
+<p>
+    @Html.ActionLink("Back to List", "Index", "Products", new { area = "Customer" }, new { @class = "btn" }) |
+    @Html.ActionLink("Purchase!", "Index", "Order", new { area = "Customer" }, new { @class = "btn btn-primary" })
+</p>

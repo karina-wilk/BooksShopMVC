@@ -1,0 +1,25 @@
+﻿@model ShopMVC.Web.Areas.AdminArea.Models.BookDisplayModel
+
+<div class="col-lg-4 col-md-6 col-sm-6">
+    <div class="card" style="" onclick="javascript:window.location.href='products/details/@Model.Id'">
+        <img class="card-img-top" src="@Model.ImageUrl" alt="@Model.Title" />
+        <div class="card-body">
+            <h5 class="card-title d-inline float-left">
+                @Model.Title
+            </h5>
+            <p class="card-text d-inline float-right">@Model.Price.ToString("c")</p>
+            <p class="card-text card-short-description"><i>@Model.ShortDescription</i></p>
+            @using (Html.BeginForm("AddToShoppingCart", "ShoppingCart", new { bookId = Model.Id }, FormMethod.Post))
+            {
+                if (Model.AvailableAmount > 0)
+                {
+                    <input type="submit" class="btn-link" value="Add to shopping cart!" />
+                }
+                else
+                {
+                    <span class="text-danger">Unavailable!</span>
+                }
+            }
+        </div>
+    </div>
+</div>
