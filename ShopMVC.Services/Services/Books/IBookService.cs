@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ShopMVC.Services.Books
 {
-    public interface IBookService
+    public interface IBookService : IDisposable
     {
         Task<IEnumerable<Book>> GetListAsync();
         Task<Book> GetByIdAsync(int id);

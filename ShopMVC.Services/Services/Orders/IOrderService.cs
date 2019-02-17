@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ShopMVC.Services.Orders
 {
-    public interface IOrderService
+    public interface IOrderService : IDisposable
     {
         //Task<Order> Add(Order order, List<OrderLine> orderLines, string userId);
         Task<Order> Add(Order order, List<OrderLine> orderLines, string userId);

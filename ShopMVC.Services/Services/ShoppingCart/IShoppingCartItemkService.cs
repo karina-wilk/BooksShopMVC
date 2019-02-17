@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace ShopMVC.Domain.ShoppingCart
 {
-    public interface IShoppingCartItemService
+    public interface IShoppingCartItemService : IDisposable
     {
         Task<bool> AddBookToCart(string userId, int bookId);
         Task<bool> ChangeQuantity(int itemId, int newQuantity);

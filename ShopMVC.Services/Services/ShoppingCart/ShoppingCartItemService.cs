@@ -93,5 +93,11 @@ namespace ShopMVC.Services.ShoppingCart
             ShoppingCartUoW.ShoppingCartItemRepo.Update(item);
             ShoppingCartUoW.Save();
         }
+
+        public void Dispose()
+        {
+            ShoppingCartUoW.Dispose();
+        }
+
     }
 }

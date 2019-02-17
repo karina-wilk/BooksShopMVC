@@ -73,5 +73,15 @@ namespace ShopMVC.Web.Areas.Customer.Controllers
             }
             return View(model);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && orderService != null)
+            {
+                orderService.Dispose();
+                orderService = null;
+            }
+            base.Dispose(disposing);
+        }
     }
 }

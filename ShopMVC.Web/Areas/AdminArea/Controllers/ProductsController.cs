@@ -110,5 +110,15 @@ namespace ShopMVC.Web.Areas.AdminArea.Controllers
             await bookService.DeleteAsync(id);
             return RedirectToAction("Index", "products");
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && bookService != null)
+            {
+                bookService.Dispose();
+                bookService = null;
+            }
+            base.Dispose(disposing);
+        }
     }
 }

@@ -107,5 +107,21 @@ namespace ShopMVC.Web.Areas.Customer.Controllers
 
             return RedirectToAction("Index");
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && shoppingCartService != null)
+            {
+                shoppingCartService.Dispose();
+                shoppingCartService = null;
+            }
+            if (disposing && bookService != null)
+            {
+                bookService.Dispose();
+                bookService = null;
+            }
+
+            base.Dispose(disposing);
+        }
     }
 }

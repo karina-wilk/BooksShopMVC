@@ -49,5 +49,11 @@ namespace ShopMVC.Services.Books
         {
             return await BookUoW.BookCategoryRepo.GetList();
         }
+
+        public void Dispose()
+        {
+            BookUoW.Dispose();
+        }
+
     }
 }

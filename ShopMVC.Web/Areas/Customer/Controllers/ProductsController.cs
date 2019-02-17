@@ -9,6 +9,7 @@ using System.Web.Mvc;
 
 namespace ShopMVC.Web.Areas.Customer.Controllers
 {
+    [HandleError]
     [Route("/products")]
     public class ProductsController : Controller
     {
@@ -25,6 +26,7 @@ namespace ShopMVC.Web.Areas.Customer.Controllers
         }
 
         // GET: Customer/Books
+        //[OutputCache(Duration = 100)]
         public async Task<ActionResult> Index()
         {
             ViewBag.ActionTitle = "All books";
@@ -40,6 +42,16 @@ namespace ShopMVC.Web.Areas.Customer.Controllers
             var book = await bookService.GetByIdFullDataAsync(id);
             var model = new BookDisplayModel(book);
             return View(model);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && bookService != null)
+            {
+                bookService.Dispose();
+                bookService = null;
+            }
+            base.Dispose(disposing);
         }
     }
 }

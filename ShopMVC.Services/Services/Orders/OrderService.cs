@@ -25,19 +25,14 @@ namespace ShopMVC.Services.Orders
             return await OrderUoW.OrderRepo.AddOrderAndCleanShoppingCart(order);
         }
 
-        //public async Task<Order> Add(Order order, List<OrderLine> orderLines, string userId)
-        //{
-        //    order.DateCreated = DateTime.Now;
-        //    order.OrderLines = orderLines;
-        //    order.OrderTotal = orderLines.Sum(c => c.Quantity * c.PricePerBook);
-        //    order.UserId = userId;
-
-        //    OrderUoW.OrderRepo.AddOrderAndCleanShoppingCart(order);
-        //}
-
         public async Task<IEnumerable<ShoppingCartItem>> GetShoppingCartItems(string userId)
         {
             return await OrderUoW.ShoppingCartItemRepo.GetList(userId);
+        }
+
+        public void Dispose()
+        {
+            OrderUoW.Dispose();
         }
     }
 }

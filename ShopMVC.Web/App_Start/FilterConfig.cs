@@ -1,4 +1,5 @@
-﻿using System.Web;
+﻿using ShopMVC.Web.Filters;
+using System.Web;
 using System.Web.Mvc;
 
 namespace ShopMVC.Web
@@ -8,6 +9,7 @@ namespace ShopMVC.Web
         public static void RegisterGlobalFilters(GlobalFilterCollection filters)
         {
             filters.Add(new HandleErrorAttribute());
+            filters.Add(new ExceptionLoggerFilter2());
         }
     }
 }
