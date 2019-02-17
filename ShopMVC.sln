@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopMVC.Web", "ShopMVC.Web\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopMVC.Core", "ShopMVC.Core\ShopMVC.Core.csproj", "{510A7151-5708-4082-971C-42B6F530D2C9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopMVC.Model", "ShopMVC.Model\ShopMVC.Model.csproj", "{CEA45D36-B269-4664-917F-3D9DD309D99A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopMVC.Services", "ShopMVC.Services\ShopMVC.Services.csproj", "{4776EE17-1E31-4673-96F1-993111F28502}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{510A7151-5708-4082-971C-42B6F530D2C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{510A7151-5708-4082-971C-42B6F530D2C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{510A7151-5708-4082-971C-42B6F530D2C9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEA45D36-B269-4664-917F-3D9DD309D99A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CEA45D36-B269-4664-917F-3D9DD309D99A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CEA45D36-B269-4664-917F-3D9DD309D99A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CEA45D36-B269-4664-917F-3D9DD309D99A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4776EE17-1E31-4673-96F1-993111F28502}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4776EE17-1E31-4673-96F1-993111F28502}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4776EE17-1E31-4673-96F1-993111F28502}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4776EE17-1E31-4673-96F1-993111F28502}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ShopMVC.Web</RootNamespace>
     <AssemblyName>ShopMVC.Web</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -318,9 +318,20 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ShopMVC.Domain\ShopMVC.Domain.csproj">
-      <Project>{1EB2A3AF-16C6-4B50-A58B-F33C8E174BD7}</Project>
+      <Project>{1eb2a3af-16c6-4b50-a58b-f33c8e174bd7}</Project>
       <Name>ShopMVC.Domain</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ShopMVC.Model\ShopMVC.Model.csproj">
+      <Project>{cea45d36-b269-4664-917f-3d9dd309d99a}</Project>
+      <Name>ShopMVC.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ShopMVC.Services\ShopMVC.Services.csproj">
+      <Project>{4776ee17-1e31-4673-96f1-993111f28502}</Project>
+      <Name>ShopMVC.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

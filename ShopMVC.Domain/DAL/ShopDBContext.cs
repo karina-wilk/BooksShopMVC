@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
 using ShopMVC.Domain.Entities;
+using ShopMVC.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

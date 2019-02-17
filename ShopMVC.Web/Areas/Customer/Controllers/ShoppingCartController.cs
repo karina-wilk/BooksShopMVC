@@ -6,17 +6,13 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
-using ShopMVC.Domain.DAL;
-using ShopMVC.Domain.Entities;
-using ShopMVC.Domain.Interfaces;
-using ShopMVC.Domain.Repositories;
-using System.Security.Claims;
 using Microsoft.AspNet.Identity;
 using ShopMVC.Domain;
 using ShopMVC.Web.Areas.Customer.Models;
 using System.Threading.Tasks;
-using ShopMVC.Domain.Services.Books;
-using ShopMVC.Domain.Services.ShoppingCart;
+using ShopMVC.Services.Books;
+using ShopMVC.Domain.ShoppingCart;
+using ShopMVC.Services.ShoppingCart;
 
 namespace ShopMVC.Web.Areas.Customer.Controllers
 {

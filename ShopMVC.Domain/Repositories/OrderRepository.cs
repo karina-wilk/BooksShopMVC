@@ -1,6 +1,7 @@
 ﻿using ShopMVC.Domain.DAL;
 using ShopMVC.Domain.Entities;
 using ShopMVC.Domain.Interfaces;
+using ShopMVC.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -22,6 +23,33 @@ namespace ShopMVC.Domain.Repositories
         public void Add(Order item)
         {
             context.Orders.Add(item);
+        }
+
+        public async Task<Order> AddOrderAndCleanShoppingCart(Order order)
+        {
+            using (var dbContextTransaction = context.Database.BeginTransaction())
+            {
+                try
+                {
+                    this.Add(order);
+
+                    foreach (var item in context.ShoppingCartItems.Where(c => c.UserId == order.UserId))
+                    {
+                        context.Entry(item).State = EntityState.Deleted;
+                    }
+
+                    await context.SaveChangesAsync();
+
+                    dbContextTransaction.Commit();
+
+                    return order;
+                }
+                catch (Exception)
+                {
+                    dbContextTransaction.Rollback();
+                    return null;
+                }
+            }
         }
 
         public void Submit()

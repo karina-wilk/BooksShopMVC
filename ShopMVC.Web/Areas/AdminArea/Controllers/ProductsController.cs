@@ -1,8 +1,5 @@
-﻿using ShopMVC.Domain.DAL;
-using ShopMVC.Domain.Entities;
-using ShopMVC.Domain.Interfaces;
-using ShopMVC.Domain.Repositories;
-using ShopMVC.Domain.Services.Books;
+﻿using ShopMVC.Model.Entities;
+using ShopMVC.Services.Books;
 using ShopMVC.Web.Areas.AdminArea.Models;
 using System;
 using System.Collections.Generic;
@@ -43,7 +40,7 @@ namespace ShopMVC.Web.Areas.AdminArea.Controllers
             var categories = await bookService.GetCategoriesAsync();
             if (categories != null)
             {
-                var model = new BookEditModel(new Domain.Entities.Book(), categories.ToList());
+                var model = new BookEditModel(new Book(), categories.ToList());
                 return View(model);
             }
 

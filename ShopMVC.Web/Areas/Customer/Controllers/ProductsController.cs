@@ -1,7 +1,4 @@
-﻿using ShopMVC.Domain.DAL;
-using ShopMVC.Domain.Interfaces;
-using ShopMVC.Domain.Repositories;
-using ShopMVC.Domain.Services.Books;
+﻿using ShopMVC.Services.Books;
 using ShopMVC.Web.Areas.AdminArea.Models;
 using System;
 using System.Collections.Generic;

@@ -4,6 +4,7 @@ namespace ShopMVC.Domain.Migrations
     using Microsoft.AspNet.Identity.EntityFramework;
     using ShopMVC.Domain.DAL;
     using ShopMVC.Domain.Entities;
+    using ShopMVC.Model.Entities;
     using ShopMVC.Web.Models;
     using System;
     using System.Data.Entity;

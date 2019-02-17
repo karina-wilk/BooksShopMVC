@@ -10,9 +10,8 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using ShopMVC.Domain;
-using ShopMVC.Domain.Interfaces;
-using ShopMVC.Domain.Repositories;
-using ShopMVC.Domain.Services.ShoppingCart;
+using ShopMVC.Domain.ShoppingCart;
+using ShopMVC.Services.ShoppingCart;
 using ShopMVC.Web.Models;
 
 namespace ShopMVC.Web.Controllers

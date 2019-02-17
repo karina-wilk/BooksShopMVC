@@ -1,6 +1,7 @@
 ﻿using ShopMVC.Domain.DAL;
 using ShopMVC.Domain.Entities;
 using ShopMVC.Domain.Interfaces;
+using ShopMVC.Model.Entities;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;

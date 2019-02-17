@@ -1,14 +1,14 @@
 ﻿using ShopMVC.Domain.DAL;
 using ShopMVC.Domain.Entities;
 using ShopMVC.Domain.Interfaces;
+using ShopMVC.Domain.ShoppingCart;
+using ShopMVC.Domain.UnitOfWork;
+using ShopMVC.Model.Entities;
 using System;
 using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopMVC.Domain.Services.ShoppingCart
+namespace ShopMVC.Services.ShoppingCart
 {
     public class ShoppingCartItemService : IShoppingCartItemService
     {

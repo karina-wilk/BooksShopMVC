@@ -7,13 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopMVC.Domain.Services.ShoppingCart
+namespace ShopMVC.Domain.UnitOfWork
 {
-    public class ShoppingCartUnityOfWork : IDisposable
+    public class BookUnityOfWork : IDisposable
     {
         public readonly ShopDBContext context = new ShopDBContext();
         private IBookRepository bookRepository;
-        private IShoppingCartItemRepository shoppingCartItemRepository;
+        private IBookCategoryRepository bookCategoryRepository;
 
         public IBookRepository BookRepo
         {
@@ -27,15 +27,15 @@ namespace ShopMVC.Domain.Services.ShoppingCart
             }
         }
 
-        public IShoppingCartItemRepository ShoppingCartItemRepo
+        public IBookCategoryRepository BookCategoryRepo
         {
             get
             {
-                if (this.shoppingCartItemRepository == null)
+                if (this.bookCategoryRepository == null)
                 {
-                    this.shoppingCartItemRepository = new ShoppingCarItemRepository(context);
+                    this.bookCategoryRepository = new BookCategoryRepository(context);
                 }
-                return shoppingCartItemRepository;
+                return bookCategoryRepository;
             }
         }
 

@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ShopMVC.Domain</RootNamespace>
     <AssemblyName>ShopMVC.Domain</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
     <TargetFrameworkProfile />
@@ -77,12 +77,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL\ShopDBContext.cs" />
-    <Compile Include="Entities\Order.cs" />
-    <Compile Include="Entities\OrderLine.cs" />
-    <Compile Include="Entities\ShoppingCartItem.cs" />
-    <Compile Include="Entities\Book.cs" />
-    <Compile Include="Entities\BookCategory.cs" />
-    <Compile Include="Entities\ApplicationUser.cs" />
     <Compile Include="Identity\ApplicationRoleManager.cs" />
     <Compile Include="Identity\ApplicationSignInManager.cs" />
     <Compile Include="Identity\ApplicationUserManager.cs" />
@@ -102,15 +96,9 @@
     <Compile Include="Repositories\OrderRepository.cs" />
     <Compile Include="Repositories\ShoppingCarItemRepository.cs" />
     <Compile Include="Repositories\BookRepository.cs" />
-    <Compile Include="Services\ShoppingCart\ShoppingCartUnityOfWork.cs" />
-    <Compile Include="Services\ShoppingCart\ShoppingCartItemService.cs" />
-    <Compile Include="Services\ShoppingCart\IShoppingCartItemkService.cs" />
-    <Compile Include="Services\Books\BookService.cs" />
-    <Compile Include="Services\Books\IBookService.cs" />
-    <Compile Include="Services\Books\BookUnityOfWork.cs" />
-    <Compile Include="Services\Orders\IOrderService.cs" />
-    <Compile Include="Services\Orders\OrderService.cs" />
-    <Compile Include="Services\Orders\OrderUnityOfWork.cs" />
+    <Compile Include="UnitOfWork\BookUnityOfWork.cs" />
+    <Compile Include="UnitOfWork\OrderUnityOfWork.cs" />
+    <Compile Include="UnitOfWork\ShoppingCartUnityOfWork.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -120,6 +108,12 @@
     <EmbeddedResource Include="Migrations\201902142319105_Init.resx">
       <DependentUpon>201902142319105_Init.cs</DependentUpon>
     </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ShopMVC.Model\ShopMVC.Model.csproj">
+      <Project>{cea45d36-b269-4664-917f-3d9dd309d99a}</Project>
+      <Name>ShopMVC.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

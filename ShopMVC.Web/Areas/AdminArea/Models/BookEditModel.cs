@@ -1,8 +1,5 @@
-﻿using ShopMVC.Domain.Entities;
-using System;
+﻿using ShopMVC.Model.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace ShopMVC.Web.Areas.AdminArea.Models

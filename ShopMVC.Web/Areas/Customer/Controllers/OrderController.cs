@@ -1,11 +1,7 @@
 ﻿using Microsoft.AspNet.Identity;
-using ShopMVC.Domain.DAL;
 using ShopMVC.Domain.Entities;
-using ShopMVC.Domain.Identity;
-using ShopMVC.Domain.Interfaces;
-using ShopMVC.Domain.Repositories;
-using ShopMVC.Domain.Services;
-using ShopMVC.Domain.Services.Orders;
+using ShopMVC.Model.Entities;
+using ShopMVC.Services.Orders;
 using ShopMVC.Web.Areas.Customer.Models;
 using System;
 using System.Collections.Generic;

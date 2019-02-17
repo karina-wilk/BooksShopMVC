@@ -7,35 +7,35 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ShopMVC.Domain.Services.Books
+namespace ShopMVC.Domain.UnitOfWork
 {
-    public class BookUnityOfWork : IDisposable
+    public class OrderUnitOfWork: IDisposable
     {
         public readonly ShopDBContext context = new ShopDBContext();
-        private IBookRepository bookRepository;
-        private IBookCategoryRepository bookCategoryRepository;
+        private IOrderRepository orderRepository;
+        private IShoppingCartItemRepository shoppingCartRepository;
 
-        public IBookRepository BookRepo
+        public IOrderRepository OrderRepo
         {
             get
             {
-                if (this.bookRepository == null)
+                if (this.orderRepository == null)
                 {
-                    this.bookRepository = new BookRepository(context);
+                    this.orderRepository = new OrderRepository(context);
                 }
-                return bookRepository;
+                return orderRepository;
             }
         }
 
-        public IBookCategoryRepository BookCategoryRepo
+        public IShoppingCartItemRepository ShoppingCartItemRepo
         {
             get
             {
-                if (this.bookCategoryRepository == null)
+                if (this.shoppingCartRepository == null)
                 {
-                    this.bookCategoryRepository = new BookCategoryRepository(context);
+                    this.shoppingCartRepository = new ShoppingCarItemRepository(context);
                 }
-                return bookCategoryRepository;
+                return shoppingCartRepository;
             }
         }
 
