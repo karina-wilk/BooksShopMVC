@@ -62,5 +62,69 @@ namespace ShopMVC.WebTests.Areas.Customer.Controller
             Assert.AreEqual("Batman", returnedModel[1].Title);
         }
 
+        [Test]
+        public async Task Index_GetListAsyncReturnsNull_ReturnsValidModel()
+        {
+            //Arrange
+            List<Book> fakeBooksList = null;
+            var bookServiceMock = new Mock<IBookService>();
+            bookServiceMock.Setup(c => c.GetListAsync())
+                .ReturnsAsync(fakeBooksList);
+
+            var controller = new ProductsController(bookServiceMock.Object);
+
+            //Act
+            var result = await controller.Index();
+            var vResult = result as ViewResult;
+
+            //Assert
+            Assert.AreEqual(vResult.Model.GetType(), typeof(List<BookDisplayModel>));
+
+            var returnedModel = vResult.Model as List<BookDisplayModel>;
+            Assert.AreEqual(0, returnedModel.Count);
+        }
+
+        [Test]
+        public async Task CreatePost_CategoriesNull_ReturnsNotFound()
+        {
+            //Arrange
+            var bookServiceMock = new Mock<IBookService>();
+            List<BookCategory> fakeCategories = null;
+            bookServiceMock.Setup(c => c.GetCategoriesAsync())
+                .ReturnsAsync(fakeCategories);
+
+            var controller = new ProductsController(bookServiceMock.Object);
+
+            //Act
+            var result = await controller.Create();
+
+            //Assert
+            Assert.AreEqual(result.GetType(), typeof(HttpNotFoundResult));
+        }
+
+        [Test]
+        public async Task CreatePost_CallsGetCategoriesAsync_ReturnsValidModel()
+        {
+            //Arrange
+            List<BookCategory> fakeCategories = new List<BookCategory>
+            {
+                new BookCategory{ Id=22, Name="Science"},
+                new BookCategory{ Id=24, Name="Romance"},
+            };
+            var bookServiceMock = new Mock<IBookService>();
+            bookServiceMock.Setup(c => c.GetCategoriesAsync())
+                .ReturnsAsync(fakeCategories);
+            var controller = new ProductsController(bookServiceMock.Object);
+
+            //Act
+            var result = await controller.Create();
+            var vResult = result as ViewResult;
+
+            //Assert
+            Assert.AreEqual(typeof(BookEditModel), vResult.Model.GetType());
+            Assert.AreEqual(3, (vResult.Model as BookEditModel).Categories.Count);
+            Assert.AreEqual("Romance", (vResult.Model as BookEditModel).Categories[2].Text);
+            Assert.AreEqual(null, (vResult.Model as BookEditModel).Categories[0].Text);
+        }
     }
 }

@@ -35,7 +35,6 @@ namespace ShopMVC.Web.Areas.AdminArea.Controllers
             if (books != null)
             {
                 model = books.Select(c => new BookDisplayModel(c)).ToList();
-                
             }
             return View(model);
         }
