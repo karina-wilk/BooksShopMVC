@@ -1,5 +1,6 @@
 namespace ShopMVC.Domain.Migrations
 {
+    using ShopMVC.Model.Entities;
     using System;
     using System.Data.Entity.Migrations;
     

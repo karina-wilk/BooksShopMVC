@@ -48,17 +48,22 @@ namespace ShopMVC.Domain.Migrations
             var manager = new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ShopDBContext()));
 
             var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(new ShopDBContext()));
-
+            var claim = new IdentityUserClaim()
+            {
+                ClaimType = "Basic",
+                ClaimValue = "CanSendOrder"
+            };
             var user = new ApplicationUser()
             {
                 UserName = "SuperPowerUser",
                 Email = "taiseer.joudeh@gmail.com",
                 EmailConfirmed = true,
-                FirstName = "Taiseer",
+                FirstName = "Karina",
                 //LastName = "Joudeh",
                 //Level = 1,
                 //JoinDate = DateTime.Now.AddYears(-3)
             };
+            user.Claims.Add(claim);
 
             manager.Create(user, "MySuperP@ss!");
 

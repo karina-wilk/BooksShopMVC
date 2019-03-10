@@ -21,17 +21,22 @@ namespace ShopMVC.Web.Areas.AdminArea.Controllers
             this.bookService = bookService;
         }
 
-        public ProductsController()
-        {
-            this.bookService = new BookService();
-        }
+        //public ProductsController()
+        //{
+        //    this.bookService = new BookService();
+        //}
        
         // GET: Admin
         public async Task<ActionResult> Index()
         {
             ViewBag.ActionTitle = "All books";
+            List<BookDisplayModel> model = new List<BookDisplayModel>();
             var books = await bookService.GetListAsync();
-            var model = books.Select(c => new BookDisplayModel(c)).ToList();
+            if (books != null)
+            {
+                model = books.Select(c => new BookDisplayModel(c)).ToList();
+                
+            }
             return View(model);
         }
 
