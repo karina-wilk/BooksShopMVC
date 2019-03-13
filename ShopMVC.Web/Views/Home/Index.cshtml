@@ -1,10 +1,16 @@
-﻿@{
+﻿@model IEnumerable<ShopMVC.Web.Areas.AdminArea.Models.BookDisplayModel>
+
+@{
     ViewBag.Title = "Home Page";
 }
 
-<div class="jumbotron">
+    <div class="jumbotron">
+        <h1>What about best selling books list?</h1>
+        @foreach (var book in Model)
+        {
+            @Html.Partial("BookTileView", book);
+        }
+        <div class="clearfix"></div>
 
-    @Html.ActionLink("All books...", "Index", "products", new { area= "customer" }, new { @class= "btn btn-primary btn-lg"})
-    <h1>What about best selling books list?</h1>
-    <p class="lead">This is an excellent place for partial view with best selling books, isn't it...?</p>
-</div>
+        @Html.ActionLink("All books...", "Index", "products", new { area = "customer" }, new { @class = "btn btn-primary btn-lg" })
+    </div>

@@ -49,6 +49,15 @@ namespace ShopMVC.Domain.Repositories
             return await context.Books.Include(x => x.Category).ToListAsync();
         }
 
+        public async Task<IEnumerable<Book>> GetListOfBestsellingAsync()
+        {
+            var query = (from item in context.OrderLines
+                         group item.Quantity by item.Book into X
+                         orderby X.Sum() descending
+                         select X.Key);
+            return await query.Take(8).ToListAsync(); 
+        }
+
         public void Update(Book item)
         {
             var entity = context.Books.Find(item.Id);

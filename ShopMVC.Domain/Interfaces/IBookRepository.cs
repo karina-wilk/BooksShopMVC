@@ -11,6 +11,7 @@ namespace ShopMVC.Domain.Interfaces
     public interface IBookRepository
     {
         Task<IEnumerable<Book>> GetListAsync();
+        Task<IEnumerable<Book>> GetListOfBestsellingAsync();
         Task<Book> GetByIdAsync(int id);
         Task<Book> GetByIdFullDataAsync(int id);
         void Update(Book item);

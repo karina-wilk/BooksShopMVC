@@ -63,7 +63,6 @@ namespace ShopMVC.Domain.Migrations
                 //Level = 1,
                 //JoinDate = DateTime.Now.AddYears(-3)
             };
-            user.Claims.Add(claim);
 
             manager.Create(user, "MySuperP@ss!");
 
@@ -94,8 +93,6 @@ namespace ShopMVC.Domain.Migrations
             var adminCarUser = manager.FindByName("car");
             manager.AddToRoles(adminCarUser.Id, new string[] { "Admin", "Seller" });
 
-
-
             //Customer
             var userCust = new ApplicationUser()
             {
@@ -110,7 +107,6 @@ namespace ShopMVC.Domain.Migrations
             manager.Create(userCust, "Admin123");
             var janUser = manager.FindByName("jan");
             manager.AddToRoles(janUser.Id, new string[] { "Customer"});
-
         }
     }
 }

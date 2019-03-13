@@ -14,6 +14,7 @@ namespace ShopMVC.Services.Books
     public interface IBookService : IDisposable
     {
         Task<IEnumerable<Book>> GetListAsync();
+        Task<IEnumerable<Book>> GetListOfBestsellingAsync();
         Task<Book> GetByIdAsync(int id);
         Task<Book> GetByIdFullDataAsync(int id);
         void Update(Book item);

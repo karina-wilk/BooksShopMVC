@@ -24,6 +24,11 @@ namespace ShopMVC.Services.Books
             BookUoW.Save();
         }
 
+        public async Task<IEnumerable<Book>> GetListOfBestsellingAsync()
+        {
+            return await BookUoW.BookRepo.GetListOfBestsellingAsync();
+        }
+
         public async Task<Book> GetByIdAsync(int id)
         {
             return await BookUoW.BookRepo.GetByIdAsync(id);
@@ -54,6 +59,5 @@ namespace ShopMVC.Services.Books
         {
             BookUoW.Dispose();
         }
-
     }
 }
